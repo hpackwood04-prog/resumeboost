@@ -37,12 +37,12 @@
   <section class="pricing">
     <h2>Unlimited access – $9/month</h2>
     <p>3 free tries, then upgrade for an access code.</p>
-    <a class="btn" id="pay" href="#">Upgrade</a>
+    <a class="btn" id="pay" href="https://buy.stripe.com/dRm4gA190cAPbzo9Ipe3e00">Upgrade</a>
   </section>
 </main>
 <script>
 const $ = (id) => document.getElementById(id);
-let paymentLink = "";
+let paymentLink = "https://buy.stripe.com/dRm4gA190cAPbzo9Ipe3e00";
 $("code").value = localStorage.getItem("code") || "";
 $("pay").onclick = (e) => { if (!paymentLink) e.preventDefault(); else $("pay").href = paymentLink; };
 $("go").onclick = async () => {
