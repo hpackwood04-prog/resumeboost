@@ -51,7 +51,7 @@ async function generate(req, res) {
   if (!API_KEY) return send(res, 500, { error: "Server missing OPENAI_API_KEY." });
 
   const paid = ACCESS_CODES.has(String(input.code || "").trim());
-  const ip = req.socket.remoteAddress;
+  const ip = req.headers["cf-connecting-ip"] || (req.headers["x-forwarded-for"] || "").split(",")[0].trim() || req.socket.remoteAddress;
   const used = usage.get(ip) || 0;
   if (!paid && used >= FREE_USES) {
     return send(res, 402, { error: "Free limit reached.", paymentLink: PAYMENT_LINK });
