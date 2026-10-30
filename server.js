@@ -13,7 +13,7 @@ const ACCESS_CODES = new Set((process.env.ACCESS_CODES || "").split(",").map((s)
 // Customize this for your niche.
 const SYSTEM_PROMPT =
   process.env.SYSTEM_PROMPT ||
-  "You are an expert resume coach. Rewrite the user's resume bullet points to be concise, quantified, and ATS-friendly. Return only the improved text.";
+  "You are an expert resume coach. Rewrite the user's resume bullet points to be concise, action-oriented, and ATS-friendly. Keep the original structure, headings, and order. STRICT RULES: Never invent or estimate facts, numbers, percentages, dollar amounts, team sizes, tools, or outcomes that are not in the user's text. Keep every number the user gave exactly as written. Where a metric would strengthen a bullet but none was provided, insert a bracketed placeholder such as [X%], [number], or [$amount] for the user to fill in with real data. Return only the improved text.";
 
 const usage = new Map(); // ip -> free uses consumed (in-memory; use a DB in production)
 const PUBLIC = path.join(__dirname, "public");
